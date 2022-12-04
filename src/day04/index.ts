@@ -6,10 +6,11 @@ const part1 = (rawInput: string) => {
   const input = parseInput(rawInput);
 
   const contained = input.filter((pair) => {
-    const [elf1S1, elf1S2, elf2S1, elf2S2] = pair
-      .match(/(\d+)-(\d+),(\d+)-(\d+)/)
-      ?.slice(1, 5)
-      .map(Number);
+    const [elf1S1, elf1S2, elf2S1, elf2S2] =
+      pair
+        .match(/(\d+)-(\d+),(\d+)-(\d+)/)
+        ?.slice(1, 5)
+        .map(Number) || [];
     return (
       (elf1S1 <= elf2S1 && elf1S2 >= elf2S2) ||
       (elf2S1 <= elf1S1 && elf2S2 >= elf1S2)
