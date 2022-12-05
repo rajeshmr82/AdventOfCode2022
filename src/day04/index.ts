@@ -11,10 +11,12 @@ const part1 = (rawInput: string) => {
         .match(/(\d+)-(\d+),(\d+)-(\d+)/)
         ?.slice(1, 5)
         .map(Number) || [];
-    return (
-      (elf1S1 <= elf2S1 && elf1S2 >= elf2S2) ||
-      (elf2S1 <= elf1S1 && elf2S2 >= elf1S2)
-    );
+
+    return elf1S1 <= elf2S1 && elf1S2 >= elf2S2
+      ? true
+      : elf2S1 <= elf1S1 && elf2S2 >= elf1S2
+      ? true
+      : false;
   });
 
   return contained.length;
@@ -24,11 +26,12 @@ const part2 = (rawInput: string) => {
   const input = parseInput(rawInput);
 
   const overlap = input.filter((pair) => {
-    const [elf1S1, elf1S2, elf2S1, elf2S2] = pair
-      .match(/(\d+)-(\d+),(\d+)-(\d+)/)
-      ?.slice(1, 5)
-      .map(Number);
-    return elf1S1 <= elf2S2 && elf2S1 <= elf1S2;
+    const [elf1S1, elf1S2, elf2S1, elf2S2] =
+      pair
+        .match(/(\d+)-(\d+),(\d+)-(\d+)/)
+        ?.slice(1, 5)
+        .map(Number) || [];
+    return Math.max(elf1S1, elf2S1) <= Math.min(elf1S2, elf2S2);
   });
 
   return overlap.length;
