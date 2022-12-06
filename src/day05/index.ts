@@ -38,10 +38,10 @@ const prepareInput = (input: string[]) => {
 const part1 = (rawInput: string) => {
   const input = parseInput(rawInput);
 
-  var { instructions, stacks } = prepareInput(input);
+  let { instructions, stacks } = prepareInput(input);
 
-  for (let index = 0; index < instructions.length; index++) {
-    const instructionValues = instructions[index].match(/\d+/g) || [];
+  for (const element of instructions) {
+    const instructionValues = element.match(/\d+/g) || [];
     const [numItems, sourceStack, destStack] = instructionValues.map(Number);
 
     const source = stacks[sourceStack];
@@ -59,10 +59,10 @@ const part1 = (rawInput: string) => {
 const part2 = (rawInput: string) => {
   const input = parseInput(rawInput);
 
-  var { instructions, stacks } = prepareInput(input);
+  let { instructions, stacks } = prepareInput(input);
 
-  for (let index = 0; index < instructions.length; index++) {
-    const instructionValues = instructions[index].match(/\d+/g) || [];
+  for (const element of instructions) {
+    const instructionValues = element.match(/\d+/g) || [];
     const [numItems, sourceStack, destStack] = instructionValues.map(Number);
 
     const source = stacks[sourceStack];
