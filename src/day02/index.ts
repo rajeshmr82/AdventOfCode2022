@@ -51,7 +51,7 @@ enum pointsByResult {
 const getScoreByResult = (values: string): number => {
   const [elf, result] = values.split(" ");
 
-  return points[evaluatePlay[result][elf]] + pointsByResult[result];
+  return points[evaluatePlay[result][elf]] || 0 + pointsByResult[result] || 0;
 };
 
 const part2 = (rawInput: string) => {
