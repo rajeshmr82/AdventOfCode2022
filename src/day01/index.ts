@@ -15,13 +15,9 @@ const part2 = (rawInput: string) => {
   let calories = tabulate(input);
 
   return calories
-    .sort(function (a, b) {
-      return a - b;
-    })
+    .sort((a, b) => a - b)
     .slice(-3)
-    .reduce(function (a, b) {
-      return a + b;
-    });
+    .reduce((a, b) => a + b);
 };
 
 run({
@@ -76,9 +72,7 @@ function tabulate(input: string[]) {
   let calories = [];
   let elfIndex = 0;
   calories.push(0);
-  for (let index = 0; index < input.length; index++) {
-    const element = input[index];
-
+  for (const element of input) {
     if (element.length == 0) {
       elfIndex++;
       calories.push(0);
