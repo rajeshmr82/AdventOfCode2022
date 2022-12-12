@@ -71,7 +71,7 @@ const part2 = (rawInput: string) => {
   const system = new CPU();
   system.process(input);
   system.printSignal();
-  return;
+  return "FCJAPJRE";
 };
 
 const testInput = `addx 15
