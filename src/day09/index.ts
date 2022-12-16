@@ -9,7 +9,8 @@ const getTailVisited = (input: string[][], ropeLength: number) => {
   const visited = new Set();
 
   const getMove = (distX: number) => {
-    return distX >= 1 ? 1 : distX <= -1 ? -1 : 0;
+    const xValue = distX <= -1 ? -1 : 0;
+    return distX >= 1 ? 1 : xValue;
   };
 
   input.forEach((move) => {
@@ -27,15 +28,15 @@ const getTailVisited = (input: string[][], ropeLength: number) => {
         default:
           break;
       }
-      for (var j = 1; j <= rope.length - 1; j++) {
+      for (let j = 1; j <= rope.length - 1; j++) {
         const [distX, distY] = distance(rope[j - 1], rope[j]);
         if (distX >= 2 || distX <= -2 || distY >= 2 || distY <= -2) {
           rope[j][0] += getMove(distX);
           rope[j][1] += getMove(distY);
         }
       }
-      const tail = rope.at(-1);
-      visited.add(`${tail[0]},${tail[1]}`);
+
+      visited.add(rope.at(-1)?.toString());
     }
   });
   return visited;
