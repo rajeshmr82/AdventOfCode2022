@@ -13,11 +13,8 @@ const part1 = (rawInput: string) => {
 const part2 = (rawInput: string) => {
   const input = parseInput(rawInput);
   let calories = tabulate(input);
-
-  return calories
-    .sort((a, b) => a - b)
-    .slice(-3)
-    .reduce((a, b) => a + b);
+  calories.sort((a, b) => a - b);
+  return calories.slice(-3).reduce((a, b) => a + b);
 };
 
 run({
