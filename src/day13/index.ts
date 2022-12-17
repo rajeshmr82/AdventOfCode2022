@@ -1,5 +1,4 @@
 import run from "aocrunner";
-import { sign } from "crypto";
 
 const parseInput = (rawInput: string) =>
   rawInput.split("\n\n").map((l) => l.split("\n").map((p) => JSON.parse(p)));
