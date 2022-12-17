@@ -1,5 +1,4 @@
 import run from "aocrunner";
-import { log } from "console";
 
 interface Monkey {
   id: number;
